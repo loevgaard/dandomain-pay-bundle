@@ -1,0 +1,7 @@
+services:
+    loevgaard_dandomain_pay.client:
+        class: Loevgaard\DandomainPayBundle\Client\Client
+        arguments:
+            - '%loevgaard_dandomain_pay.wsdl%'
+            - '%loevgaard_dandomain_pay.username%'
+            - '%loevgaard_dandomain_pay.password%'
