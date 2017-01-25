@@ -56,10 +56,20 @@ class CreditTransactionResult extends Result
         $this->externalCode         = (int)$this->_data->Output->ExternalCode;
         $this->additionalDetail     = $this->_data->Output->AdditionalDetail;
         $this->cardType             = $this->_data->Output->CardType;
-        $this->creditDate           = new \DateTimeImmutable($this->_data->Output->CreditDate); // @todo this is wrong, figure out the format and use \DateTimeImmutable::createFromFormat()
-        $this->transactionDate      = new \DateTimeImmutable($this->_data->Output->TransactionDate);
-        $this->renewDate            = new \DateTimeImmutable($this->_data->Output->RenewDate);
         $this->transLiabilityShift  = $this->_data->Output->TransLiabilityShift;
+
+        if($this->_data->Output->CreditDate) {
+            $this->creditDate = new \DateTimeImmutable($this->_data->Output->CreditDate); // @todo this is wrong, figure out the format and use \DateTimeImmutable::createFromFormat()
+        }
+
+        if($this->_data->Output->TransactionDate) {
+            $this->transactionDate = new \DateTimeImmutable($this->_data->Output->TransactionDate);
+        }
+
+        if($this->_data->Output->RenewDate) {
+            $this->renewDate = new \DateTimeImmutable($this->_data->Output->RenewDate);
+        }
+
     }
 
     /**

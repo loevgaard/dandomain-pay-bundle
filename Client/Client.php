@@ -57,6 +57,28 @@ class Client implements ClientInterface {
     }
 
     /**
+     * @param string|int $transactionId
+     * @param float $creditAmount
+     * @return CreditTransactionResult
+     * @throws \SoapFault
+     * @throws \InvalidArgumentException
+     */
+    public function creditTransactionFromTransactionId($transactionId, $creditAmount = null) {
+        return $this->creditTransaction($transactionId, null, $creditAmount);
+    }
+
+    /**
+     * @param int $orderId
+     * @param float $creditAmount
+     * @return CreditTransactionResult
+     * @throws \SoapFault
+     * @throws \InvalidArgumentException
+     */
+    public function creditTransactionFromOrderId($orderId, $creditAmount = null) {
+        return $this->creditTransaction(null, $orderId, $creditAmount);
+    }
+
+    /**
      * This method determines whether the web service is up and running.
      */
     public function healthCheck() {
