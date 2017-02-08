@@ -76,7 +76,7 @@ class CreditTransactionResult extends Result
      * @inheritdoc
      */
     public function isSuccess() {
-        return $this->internalCode == 200;
+        return $this->internalCode == 203;
     }
 
     /**
