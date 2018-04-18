@@ -13,7 +13,7 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
-                ->scalarNode('wsdl')->defaultValue('http://pay.dandomain.dk/service/payservice.asmx?WSDL')->end()
+                ->scalarNode('wsdl')->defaultValue('https://pay.dandomain.dk/service/payservice.asmx?WSDL')->end()
                 ->scalarNode('username')->end()
                 ->scalarNode('password')->end()
             ->end()
